@@ -66,8 +66,8 @@ export default function StudioPage() {
         <div className="md:-ml-[11%] md:mr-0 space-y-10 md:space-y-16">
           <div className="relative aspect-[3/4] bg-neutral-100">
             <Image
-              src="/projects/cabinet-gssv-balma/03.jpg"
-              alt="Poignée et tasseaux de chêne, cabinet GSSV Balma"
+              src="/projects/50-rue-des-anges/02.jpg"
+              alt="Escalier en chêne et murs blancs, maison toulousaine du 50 rue des Anges"
               fill
               sizes="(max-width: 900px) 100vw, 50vw"
               className="object-cover"
@@ -157,39 +157,48 @@ export default function StudioPage() {
             ))}
           </ul>
 
-          <p className="mt-8">
+          <p className="mt-14">
             <span className="label">Équipe :</span>
           </p>
-          <div className="flex gap-5 items-start">
+          <figure className="mt-5 mb-10 max-w-[400px]">
             <Image
-              src="/studio/sophie-vu.jpg"
-              alt="Sophie Vu, fondatrice de GSSV Design"
-              width={200}
+              src="/studio/sophie-vu-emilie-libralato.jpg"
+              alt="Portraits de Sophie Vu, fondatrice, et d'Emilie Libralato, collaboratrice, GSSV Design"
+              width={400}
               height={400}
-              className="shrink-0 w-[88px] md:w-[110px] h-auto bg-neutral-100"
+              className="w-full h-auto bg-neutral-100"
             />
-            <p className="mt-0">
-              Sophie Vu, fondatrice. Architecte, architecte d&apos;intérieur
-              &amp; designer
-              <span className="block">
-                Sophie a fondé GSSV Design en 2017 à Toulouse. Architecte,
-                architecte d&apos;intérieur et designer, elle conduit chaque
-                projet de la première esquisse à la remise des clés : écoute du
-                lieu, plans, choix des matières, direction artistique du
-                chantier.
+            <figcaption className="grid grid-cols-[194fr_206fr] mt-3">
+              <span>
+                Sophie Vu
+                <span className="block opacity-60">Fondatrice</span>
               </span>
-            </p>
-          </div>
+              <span>
+                Emilie Libralato
+                <span className="block opacity-60">Collaboratrice</span>
+              </span>
+            </figcaption>
+          </figure>
           <p>
-            Emilie Libralato, collaboratrice
-            <span className="block">
+            <span className="label">Sophie Vu :</span> Architecte, architecte
+            d&apos;intérieur &amp; designer
+            <span className="block mt-2">
+              Sophie a fondé GSSV Design en 2017 à Toulouse. Elle conduit
+              chaque projet de la première esquisse à la remise des clés :
+              écoute du lieu, plans, choix des matières, direction artistique
+              du chantier.
+            </span>
+          </p>
+          <p className="mt-6">
+            <span className="label">Emilie Libralato :</span> Collaboratrice
+            <span className="block mt-2">
               Emilie travaille aux côtés de Sophie sur l&apos;ensemble des
               projets du studio, particuliers et professionnels, en France et
               à l&apos;international.
             </span>
           </p>
 
-          <p className="mt-8">
+          <p className="mt-14">
             <span className="label">Presse :</span>
           </p>
           <ul className="mb-2">
