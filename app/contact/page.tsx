@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { Metadata } from "next";
 import { ContactForm } from "../components/contact-form";
 
@@ -23,6 +24,13 @@ export default function ContactPage() {
         </div>
 
         <div className="sheet md:pt-[62px]">
+          <Image
+            src="/brand/gssv-emblem.png"
+            alt="Emblème GSSV Design, architecture d'intérieur"
+            width={120}
+            height={120}
+            className="mb-6 h-[96px] w-[96px] md:h-[120px] md:w-[120px]"
+          />
           <p>GSSV Design</p>
           <p>
             38 Boulevard de Strasbourg
