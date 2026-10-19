@@ -66,21 +66,21 @@ export default function StudioPage() {
         <div className="md:-ml-[11%] md:mr-0 space-y-10 md:space-y-16">
           <div className="relative aspect-[3/4] bg-neutral-100">
             <Image
-              src="/projects/50-rue-des-anges/02.jpg"
-              alt="Escalier en chêne et murs blancs, maison toulousaine du 50 rue des Anges"
+              src="/projects/villa-boely/hero.jpg"
+              alt="Salon de la Villa Boely : fauteuil Eames, canapé Bubble et suspension Vertigo face à la piscine"
               fill
               sizes="(max-width: 900px) 100vw, 50vw"
-              className="object-cover"
+              className="object-cover object-[42%_50%]"
               priority
             />
           </div>
           <div className="relative aspect-[3/4] md:w-[78%] md:ml-auto bg-neutral-100">
             <Image
-              src="/projects/villa-boely/02.jpg"
-              alt="Suspension laiton et céramiques, Villa Boely"
+              src="/projects/50-rue-des-anges/hero.jpg"
+              alt="Fauteuil club en cuir, brique foraine et galets, maison toulousaine du 50 rue des Anges"
               fill
               sizes="(max-width: 900px) 100vw, 40vw"
-              className="object-cover"
+              className="object-cover object-[78%_50%]"
             />
           </div>
         </div>
