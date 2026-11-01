@@ -20,7 +20,7 @@ const P = (src: string, w: number, h: number): Photo => ({ src, w, h });
 export const PROJECTS: Project[] = [
   {
     slug: "50-rue-des-anges",
-    title: "50 rue des Anges",
+    title: "La Toulousaine Minimes",
     category: "Particuliers",
     place: "Toulouse",
     year: "",
