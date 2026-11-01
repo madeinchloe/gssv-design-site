@@ -87,6 +87,7 @@ Les images du site Wix sont hébergées sur static.wixstatic.com, pas sur le dom
 **Sur Vercel** (projet `gssv-design`)
 1. Ajouter les deux domaines au projet : `www.gssvdesign.com` en domaine principal, `gssvdesign.com` en redirection vers www. Vercel génère la redirection apex vers www en 308, ce qui reproduit le comportement actuel.
 2. Noter les enregistrements DNS que Vercel demande (un enregistrement A pour l'apex, un CNAME pour www).
+3. Fait le 22 octobre 2026 : zone DNS Vercel activée sur gssvdesign.com (serveurs de noms cibles ns1.vercel-dns.com et ns2.vercel-dns.com). Les 5 MX Google, les 3 CNAME mail/calendar/docs et le TXT SPF sont recopiés dans la zone. Vercel gère lui-même les enregistrements ALIAS de l'apex et du wildcard ainsi que les CAA. Le TXT de vérification Search Console (google-site-verification=i1ZCU-E-qqGWMs4lPIG9oMj63O6jfd-Bzy5yno_unFA) est ajouté le même jour.
 
 ### Jour J (bascule DNS)
 
@@ -104,15 +105,31 @@ Dans les deux cas, relever les enregistrements MX et TXT existants avant toute m
 | MX | @ | alt2.aspmx.l.google.com | 30 |
 | MX | @ | aspmx2.googlemail.com | 40 |
 | MX | @ | aspmx3.googlemail.com | 50 |
+| CNAME | mail | ghs.googlehosted.com | |
+| CNAME | calendar | ghs.googlehosted.com | |
+| CNAME | docs | ghs.googlehosted.com | |
 | TXT | @ | v=spf1 include:_spf.google.com ~all | (à ajouter) |
+
+Pas de DNSSEC sur le domaine, pas de clé DKIM publiée.
+
+Ajouté le 22 octobre 2026 dans la zone Vercel : TXT `_dmarc` = `v=DMARC1; p=none; rua=mailto:contact@gssvdesign.com` (surveillance seule, aucun rejet). DKIM reste à faire : la clé se génère dans la console d'administration Google Workspace (Applications, Google Workspace, Gmail, Authentifier les e-mails), rôle super-administrateur requis, puis TXT `google._domainkey` à ajouter dans la zone Vercel et « Lancer l'authentification » sous 48 h.
 
 Puis, dans l'ordre :
 1. Dans Vercel, Settings, Environment Variables : ajouter `SITE_LIVE` = `1` pour Production, puis redéployer.
+   Fait le 22 octobre 2026 : variable posée, déploiement de production dpl_GSrKwyMXe7Pha1yZiUxrbmncR6gM. Vérifié sur l'URL du déploiement : robots.txt ouvert avec sitemap, meta robots index, 12 redirections 308 en place, gssv-design.vercel.app redirige en 308 vers www. L'en-tête x-robots-tag noindex visible sur l'URL hachée du déploiement est ajouté par Vercel sur ces URL techniques, il n'apparaît pas sur le domaine (à contrôler après bascule).
 2. Attendre la propagation DNS (de quelques minutes à 24 h) et vérifier que `https://www.gssvdesign.com` sert bien le nouveau site avec un certificat valide.
 3. Contrôler avec `curl -I` les 12 anciennes URL : chacune doit répondre 308 vers la nouvelle route.
 4. Contrôler `https://www.gssvdesign.com/robots.txt` (doit autoriser l'exploration) et `https://www.gssvdesign.com/sitemap.xml`.
 5. Dans Search Console : soumettre le sitemap, puis utiliser l'inspection d'URL et « Demander l'indexation » sur l'accueil, /projets, /studio et /contact.
 6. Ne pas résilier l'abonnement Wix tout de suite : le garder un mois permet de revenir en arrière en cas de problème.
+
+**Bascule effectuée le 22 octobre 2026** (option A, serveurs de noms Vercel chez GoDaddy). Relevé après bascule :
+- registre .com et résolveurs publics (Google, Cloudflare, Quad9) sur ns1/ns2.vercel-dns.com en moins de 30 minutes ;
+- certificat Let's Encrypt émis manuellement via l'API Vercel (cert_PN0nrd9accPyn4zSh5ZvTAFg) pour gssvdesign.com et www.gssvdesign.com, valable jusqu'au 20 janvier 2027, renouvellement automatique ;
+- apex et http redirigent en 308 vers https://www.gssvdesign.com, accueil en 200 avec le title « Architecte d'intérieur à Toulouse | GSSV Design, Sophie Vu », meta robots index, canonical www, aucun en-tête x-robots-tag ;
+- robots.txt ouvert avec sitemap, sitemap.xml de 14 URL, /projets /studio /contact /mentions-legales /confidentialite /llms.txt en 200 ;
+- les 12 anciennes URL Wix répondent 308 vers /projets, /contact ou /studio ;
+- MX Google Workspace, SPF et TXT Search Console servis par la zone Vercel.
 
 ### Après la bascule (J+1 à J+90)
 1. Search Console, rapport Pages : surveiller chaque semaine pendant un mois les erreurs 404 et les « pages avec redirection ». Toute 404 sur une ancienne URL inconnue doit être ajoutée à la liste de redirections.

@@ -102,9 +102,9 @@ Ce que ça dit :
 - Photos de projets avec légendes, posts mensuels, et surtout avis clients : demander un avis à chaque remise de clés. Les avis sont le premier critère du pack local et la première source des réponses IA sur « meilleur architecte d'intérieur Toulouse ».
 - Mettre à jour les fiches Houzz, Archi Panorama, Pages Jaunes, Mappy avec exactement le même nom, la même adresse et le même téléphone que le site (38 Boulevard de Strasbourg, 31000 Toulouse).
 
-### P3. Journal (blog) : réactiver et planifier
+### P3. Blog : à créer dans le nouveau design
 
-Le dossier `app/_disabled-journal` contient déjà un journal fonctionnel et quatre articles d'environ 900 mots chacun. Il suffit de le renommer en `app/journal` et de l'ajouter au sitemap. Les quatre articles existants couvrent déjà : la palette de matières du Sud-Ouest, la différence architecte / architecte d'intérieur / décorateur, le coût d'un architecte d'intérieur, la méthode de rénovation d'une échoppe toulousaine.
+L'ancien journal (dossier `app/_disabled-journal`, quatre articles MDX, dépendances next-mdx-remote et consorts) a été supprimé le 23 octobre 2026 : design précédent, photos Unsplash, chiffres non validés. Le blog sera recréé dans le design actuel du site, sous un nom de rubrique encore à choisir (pas « Journal »). Les quatre sujets restent valables et sont repris dans le calendrier ci-dessous : la palette de matières du Sud-Ouest, la différence architecte / architecte d'intérieur / décorateur, le coût d'un architecte d'intérieur, la méthode de rénovation d'une échoppe toulousaine.
 
 Calendrier proposé, un article par mois, par ordre de potentiel :
 
@@ -133,7 +133,7 @@ Chaque article passe par le pipeline Brief, Write, Review à 95/100, avec Sophie
 
 | Quand | Quoi |
 | --- | --- |
-| Avant le lancement | Texte accueil + title, pages Particuliers / Professionnels / Honoraires, lieux et textes des 10 projets, schémas Person et FAQ, journal réactivé avec ses 4 articles |
+| Avant le lancement | Texte accueil + title, pages Particuliers / Professionnels / Honoraires, lieux et textes des 10 projets, schémas Person et FAQ, blog recréé dans le nouveau design |
 | Semaine du lancement | Fiche Google Business Profile à jour, demande d'avis aux clients récents, fiches annuaires alignées |
 | Mois 1 à 3 | Articles brique foraine, maison toulousaine, mise à jour coût + devis PDF |
 | Mois 4 à 8 | Suite du calendrier, pages Balma et Albi, premier bilan Search Console et test de visibilité IA |
