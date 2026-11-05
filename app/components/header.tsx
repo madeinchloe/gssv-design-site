@@ -7,7 +7,8 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 
 const LINKS = [
   { href: "/studio", label: "Le Studio" },
-  { href: "/projets", label: "Projets" },
+  { href: "/projets/particuliers", label: "Résidentiel" },
+  { href: "/projets/professionnels", label: "Commerces" },
   { href: "/contact", label: "Contact" },
 ];
 
